@@ -177,7 +177,7 @@ main {
 }
 .room .price span {
   font-size:.85rem;
-  color:#eee;
+  color: black;
   display:block;
 }
 .footer {
@@ -326,4 +326,154 @@ main {
     gap:14px 20px;
     padding:12px 16px;
   }
+}
+
+/* =========================
+   PROGRAMA
+========================= */
+
+#programa {
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.programa-header {
+  max-width: 680px;
+  margin-bottom: 55px;
+}
+
+.programa-header h2 {
+  margin-bottom: 14px;
+}
+
+.programa-header > p {
+  margin: 0;
+  opacity: .65;
+  font-size: 17px;
+}
+
+
+/* GRID */
+
+.programa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+}
+
+
+/* TARJETAS */
+
+.programa-card {
+  position: relative;
+  min-height: 270px;
+  padding: 28px 30px 32px;
+
+  border: 1px solid rgba(20, 20, 20, .12);
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, .28);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+}
+
+.programa-card:hover {
+  transform: translateY(-7px) rotate(-.4deg);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, .08);
+  background: rgba(255, 255, 255, .55);
+}
+
+
+/* PARTE SUPERIOR */
+
+.programa-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.programa-number {
+  font-size: 12px;
+  letter-spacing: .16em;
+  opacity: .4;
+}
+
+.programa-time {
+  font-size: 15px;
+  letter-spacing: .08em;
+}
+
+
+/* ICONO */
+
+.programa-icon {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+
+/* TITULO */
+
+.programa-card h3 {
+  margin: 0 0 10px;
+  font-size: 27px;
+}
+
+.programa-card p {
+  max-width: 330px;
+  margin: 0;
+  line-height: 1.65;
+  opacity: .72;
+}
+
+
+/* FIESTA */
+
+.programa-card-fiesta {
+  background: rgba(20, 20, 20, .035);
+}
+
+.programa-card-fiesta .programa-icon {
+  transform: rotate(-5deg);
+}
+
+.programa-card-fiesta:hover .programa-icon {
+  transform: rotate(8deg) scale(1.12);
+  transition: transform .3s ease;
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 700px) {
+
+  #programa {
+    padding-top: 75px;
+    padding-bottom: 80px;
+  }
+
+  .programa-header {
+    margin-bottom: 35px;
+  }
+
+  .programa-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .programa-card {
+    min-height: 230px;
+    padding: 24px 25px 28px;
+  }
+
+  .programa-card h3 {
+    font-size: 25px;
+  }
+
 }
