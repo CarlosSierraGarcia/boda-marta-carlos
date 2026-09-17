@@ -21,6 +21,126 @@ body {
 main {
   display:block;
 }
+/* =========================================================
+   TIPOGRAFÍA
+   ========================================================= */
+
+/* Tipografía general */
+body {
+  font-family: var(--font-body, Arial, sans-serif);
+}
+
+/* ---------------------------------------------------------
+   TITULARES
+   --------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Título principal */
+h1 {
+  font-size: clamp(52px, 8vw, 96px);
+}
+
+/* Títulos de sección */
+h2 {
+  font-size: clamp(42px, 6vw, 68px);
+}
+
+/* Subtítulos */
+h3 {
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+h4,
+h5,
+h6 {
+  font-size: 28px;
+}
+
+
+/* ---------------------------------------------------------
+   DESTACADOS / EYEBROWS
+   --------------------------------------------------------- */
+
+.eyebrow {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+
+/* ---------------------------------------------------------
+   FRASES DESTACADAS
+   --------------------------------------------------------- */
+
+.story strong,
+.highlight,
+.hero strong {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   TÍTULO DEL PROGRAMA
+   --------------------------------------------------------- */
+
+.programa-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+
+/* ---------------------------------------------------------
+   HORAS DEL PROGRAMA
+   --------------------------------------------------------- */
+
+.programa-time {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   NÚMEROS
+   --------------------------------------------------------- */
+
+.programa-number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   MENÚ
+   --------------------------------------------------------- */
+
+/* El menú se mantiene con la tipografía de cuerpo.
+   Así los titulares tienen personalidad y la navegación
+   sigue siendo limpia y fácil de leer. */
+
+.nav,
+.nav a,
+.mobile-menu a {
+  font-family: var(--font-body, Arial, sans-serif);
+}
 .hero {
   min-height:92vh;
   background:linear-gradient(#0002,#0005),url("../imagenes/imagen-01.jpg") center/cover;
@@ -190,32 +310,256 @@ main {
   font-weight:400;
   font-size:3rem;
 }
+/* =========================
+   NAVEGACIÓN
+========================= */
+
 .nav {
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:50;
-  background:rgba(247,243,234,.94);
-  backdrop-filter:blur(4px);
-  border-bottom:1px solid #e3ddcc;
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-  padding:14px 20px;
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  background: rgba(247, 243, 234, .94);
+  backdrop-filter: blur(8px);
+
+  border-bottom: 1px solid #e3ddcc;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
 }
-.nav a {
-  color:var(--olive);
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  font-size:.75rem;
-  font-family:Georgia,serif;
+
+.nav-inner {
+  min-height: 62px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.nav a:hover {
-  text-decoration:underline;
+
+
+/* Nombre */
+
+.nav-brand {
+  display: none;
+
+  color: var(--dark);
+  text-decoration: none;
+
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: .08em;
+}
+
+
+/* Enlaces escritorio */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.nav-links a,
+.mobile-menu a {
+  color: var(--olive);
+  text-decoration: none;
+
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .75rem;
+  font-family: Georgia, serif;
+}
+
+.nav-links a:hover,
+.mobile-menu a:hover {
+  color: var(--dark);
+}
+
+
+/* Botón hamburguesa */
+
+.nav-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 9px;
+
+  width: 24px;
+  height: 1px;
+
+  background: var(--dark);
+
+  transition:
+    transform .3s ease,
+    top .3s ease;
+}
+
+.nav-toggle span:first-child {
+  top: 16px;
+}
+
+.nav-toggle span:last-child {
+  top: 25px;
+}
+
+
+/* Animación hamburguesa → X */
+
+.nav.open .nav-toggle span:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.nav.open .nav-toggle span:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+
+/* Menú móvil */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 760px) {
+
+  html {
+    scroll-padding-top: 62px;
+  }
+
+  .nav-inner {
+    min-height: 62px;
+    padding: 0 18px;
+
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+
+  /* Panel desplegable */
+
+  .mobile-menu {
+    display: flex;
+
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+
+    min-height: calc(100vh - 62px);
+
+    padding: 55px 28px 70px;
+
+    background: rgba(247, 243, 234, .98);
+    backdrop-filter: blur(12px);
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 27px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+
+    pointer-events: none;
+
+    transition:
+      opacity .3s ease,
+      transform .3s ease,
+      visibility .3s ease;
+  }
+
+  .mobile-menu a {
+    font-size: .9rem;
+    letter-spacing: .16em;
+
+    opacity: 0;
+    transform: translateY(-8px);
+
+    transition:
+      opacity .3s ease,
+      transform .3s ease;
+  }
+
+
+  /* Menú abierto */
+
+  .nav.open .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav.open .mobile-menu a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav.open .mobile-menu a:nth-child(1) {
+    transition-delay: .04s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(2) {
+    transition-delay: .07s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(3) {
+    transition-delay: .10s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(4) {
+    transition-delay: .13s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(5) {
+    transition-delay: .16s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(6) {
+    transition-delay: .19s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(7) {
+    transition-delay: .22s;
+  }
+
+  .nav.open .mobile-menu a:nth-child(8) {
+    transition-delay: .25s;
+  }
 }
 .section-text {
   max-width:680px;
@@ -477,3 +821,5 @@ main {
   }
 
 }
+
+.nav.open .nav-toggle span:nth-of-type(2){display: none;}
